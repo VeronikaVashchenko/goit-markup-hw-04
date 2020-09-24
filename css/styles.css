@@ -117,17 +117,16 @@ header a {
 .item:hover a {
   color: var(--accent-color);
 }
-
+.link {
+  display: flex;
+  align-items: center;
+}
 .icon-contacts {
   margin-right: 10px;
   fill: var(--primary-text-color);
   align-items: center;
 }
 
-.contact-envelope,
-.contact-tel {
-  display: flex;
-}
 .item-mail:hover svg,
 .item:hover svg{
   fill: var(--accent-color);
@@ -144,22 +143,17 @@ header a {
   margin-left: auto;
   margin-right: auto;
   outline: 1px solid black;
-
-  background-image: url('../images/hero.jpg');
+  background-image: linear-gradient(
+      to right,
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url('../images/hero.jpg');
+  
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-.hero-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
- background-color: var(--hero-footer-color);
- background: rgba(47, 48, 58, 0.4);
-   height: 100%;
-   width: 100%;
-
-} 
 
 .hero-title {
   color: var(--primary-bg-color);
@@ -168,12 +162,12 @@ header a {
   line-height: 1.36;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-
+ 
   width: 696px;
   margin-left: auto;
   margin-right: auto;
 
-  margin-top: 200px;
+  margin-top: 0;
   margin-bottom: 30px;
 }
 
@@ -427,6 +421,7 @@ footer a {
   margin-left: 70px;
 }
 .join-title {
+  align-items: baseline;
   margin-top: 0;
   margin-bottom: 20px;
   font-weight: 700;
@@ -434,7 +429,7 @@ footer a {
   line-height: 1.14;
   letter-spacing: 0.03em;
   text-transform: uppercase;
-  align-items: baseline;
+  
 }
 .grey-item .social-link {
   background: rgba(255, 255, 255, 0.1);
@@ -501,7 +496,8 @@ footer a {
   border: 1px solid #eeeeee;
   box-sizing: border-box;
 }
-.item-portfolio:hover {
+.portfolio-link:hover {
+  display: inline-block;
   background: var(--primary-bg-color);
   border: 1px solid #eeeeee;
   box-sizing: border-box;
