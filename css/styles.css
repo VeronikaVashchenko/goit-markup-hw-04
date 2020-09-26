@@ -117,9 +117,21 @@ header a {
 .item:hover a {
   color: var(--accent-color);
 }
+
 .link {
+  position: relative;
   display: flex;
   align-items: center;
+}
+.current:after {
+content: "";
+position: absolute;
+width: 100%;
+height: 4px;
+left: 0;
+top: 76px;
+background-color: var(--accent-color);
+border-radius: 2px;
 }
 .icon-contacts {
   margin-right: 10px;
@@ -128,7 +140,7 @@ header a {
 }
 
 .item-mail:hover svg,
-.item:hover svg{
+.item:hover svg {
   fill: var(--accent-color);
 }
 
@@ -260,6 +272,34 @@ section {
 .item-activities:nth-child(3n) {
   margin-right: 0;
 }
+.activities-link {
+position: relative;
+}
+.text-activities {
+  display: flex;
+  position: absolute;
+
+width: 370px;
+height: 70px;
+left: 0;
+bottom: 0;
+
+background: rgba(47, 48, 58, 0.8);
+
+justify-content: center;
+align-items: center;
+
+font-weight: 700;
+font-size: 14px;
+line-height: 1.14;
+letter-spacing: 0.03em;
+text-transform: uppercase;
+
+color: var(--primary-bg-color);
+}
+.text-activities p {
+  margin: 0;
+}
 
 /* command */
 .command-section {
@@ -372,6 +412,20 @@ button:hover {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
   border-radius: 4px;
 }
+.button.close {
+  position: absolute;
+  display: inline-block;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  right: 8px;
+  top: 8px;
+
+background: var(--primary-bg-color);
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 50%;
+}
+
 button {
   color: var(--title-text-color);
   background-color: var(--secondary-bg-color);
@@ -487,6 +541,36 @@ footer a {
   display: flex;
   flex-wrap: wrap;
 }
+
+.description {
+position: relative;
+overflow: hidden;
+}
+.portfolio-description {
+position: absolute;
+margin: 0;
+padding: 63px 24px;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+color: var(--primary-bg-color);
+background-color: rgba(33, 150, 243, 0.9);
+
+font-weight: 400;
+font-size: 18px;
+line-height: 1.56;
+letter-spacing: 0.03em;
+
+transform: translateY(100%);
+transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+opacity: 0;
+}
+.description:hover .portfolio-description {
+transform: translateX(0);
+opacity: 1;
+}
+
 .item-portfolio {
   width: calc((100% - 30px * 2) / 3);
   margin-right: 30px;
@@ -536,14 +620,14 @@ html {
   margin-right: 10px;
 
   width: 44px;
-  height: 44px;
+  height: 44px; 
 }
 .social-list-item:hover a {
   background: var(--accent-color);
-}
+  }
 .social-list-item:hover svg {
   fill: var(--primary-bg-color);
-}
+  }
 
 .grey-item .social-link:hover {
   background: var(--accent-color);
@@ -563,3 +647,48 @@ html {
   fill: #afb1b8;
 }
 
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.2);
+
+  opacity: 1;
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.backdrop.is-hidden {
+opacity: 0;
+pointer-events: none;
+}
+.modal {
+  position: absolute;
+  z-index: 2;
+  width: 528px;
+  height: 581px;
+   top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  background-color: var(--primary-bg-color);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14), 0px 2px 1px rgba(0, 0, 0, 0.2);
+  border-radius: 4px; 
+}
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+.social-link,
+.clients-link,
+.menu-item
+{transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.social-icon,
+.clients-icon,
+.icon-contacts
+ {transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.link,
+button
+{transition: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}

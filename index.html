@@ -61,7 +61,19 @@
       <section class="hero">
         <div class="hero-content">
           <h1 class="hero-title">Эффективные решения для вашего бизнеса</h1>
-          <a href="" class="button primary">Заказать услугу</a>
+          <button class="button primary" data-modal-open>
+            Заказать услугу
+          </button>
+          <div class="backdrop is-hidden" data-modal>
+            <div class="modal">
+              <p></p>
+              <button class="button close" data-modal-close>
+                <svg class="icon-close" width="11" height="11">
+                  <use href="./images/sprite.svg#icon-close"></use>
+                </svg>
+              </button>
+            </div>
+          </div>
         </div>
       </section>
       <!-- Принципы работы -->
@@ -125,22 +137,36 @@
           <h2 class="section-title">Чем мы занимаемся</h2>
           <ul class="activities-list list">
             <li class="item-activities">
-              <a href=""
-                ><img src="./images/img.jpg" alt="Программирование" width="370"
-              /></a>
+              <a class="activities-link" href=""
+                ><img
+                  src="./images/img.jpg"
+                  alt="Программирование"
+                  width="370"
+                />
+                <div class="text-activities">
+                  <p>Десктопные приложения</p>
+                </div>
+              </a>
             </li>
             <li class="item-activities">
-              <a href=""
+              <a class="activities-link" href=""
                 ><img
                   src="./images/img1.jpg"
                   alt="Разработка приложений для смартфонов"
                   width="370"
-              /></a>
+                />
+                <div class="text-activities">
+                  <p>Мобильные приложения</p>
+                </div>
+              </a>
             </li>
             <li class="item-activities">
-              <a href=""
-                ><img src="./images/img2.jpg" alt="Веб-дизайн" width="370"
-              /></a>
+              <a class="activities-link" href=""
+                ><img src="./images/img2.jpg" alt="Веб-дизайн" width="370" />
+                <div class="text-activities">
+                  <p>Дизайнерские решения</p>
+                </div></a
+              >
             </li>
           </ul>
         </div>
@@ -410,5 +436,7 @@
         </div>
       </div>
     </footer>
+
+    <script src="./js/modal.js"></script>
   </body>
 </html>
